@@ -1,0 +1,189 @@
+/* ===============================
+   SCOPE: ONLY Branch COMPONENT
+   =============================== */
+
+.page {
+  padding: 24px 16px;
+  background: #f9fafb;
+  min-height: 40vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== BACKGROUND SHAPES ===== */
+.page::before,
+.page::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.page::before {
+  width: 350px;
+  height: 350px;
+  background: #2575fc;
+  top: -80px;
+  left: -80px;
+  animation: float1 15s infinite alternate;
+}
+
+.page::after {
+  width: 450px;
+  height: 450px;
+  background: #6a11cb;
+  bottom: -120px;
+  right: -120px;
+  animation: float2 20s infinite alternate;
+}
+
+@keyframes float1 {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(25px) translateX(25px); }
+}
+
+@keyframes float2 {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-25px) translateX(-25px); }
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.page-header p {
+  font-size: 14px;
+  color: #475569;
+}
+
+
+.page .card-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 16px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+  align-items: flex-start;
+}
+
+
+.page .card-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.page .card-grid::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 10px;
+}
+
+
+.page .card {
+  flex: 0 0 auto;
+  width: 240px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px 16px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page .card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+}
+
+
+.page .card-icon {
+  font-size: 28px;
+  color: #1e3a8a;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.page .card:hover .card-icon {
+  transform: translateY(-3px) scale(1.1);
+  color: #fff;
+}
+
+
+.page .card span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #020617;
+  transition: color 0.3s ease;
+}
+
+.page .card:hover span {
+  color: #fff;
+}
+
+
+.page-footer {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 13px;
+  color: #64748b;
+  position: relative;
+  z-index: 1;
+}
+
+
+@media (min-width: 768px) {
+  .page-header h1 {
+    font-size: 28px;
+  }
+
+  .page .card {
+    width: 260px;
+    height: 180px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .page .card-grid {
+    gap: 24px;
+  }
+
+  .page .card {
+    width: 280px;
+    height: 190px;
+  }
+}

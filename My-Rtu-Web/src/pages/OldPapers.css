@@ -1,0 +1,232 @@
+/* =========================
+   OLD PAPERS PAGE (PRO UI)
+========================= */
+
+.papers-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe);
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   HEADER (MODERN)
+========================= */
+
+.papers-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.papers-header h1 {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.papers-header p {
+  color: #64748b;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+/* =========================
+   YEAR BUTTONS (GLASS STYLE)
+========================= */
+
+.year-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.year-buttons button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.year-buttons button:hover {
+  transform: translateY(-3px);
+  background: #0ea5e9;
+  color: white;
+}
+
+.active-year {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb) !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* =========================
+   SEARCH (MODERN INPUT)
+========================= */
+
+.search-input {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  margin: 0 auto 35px auto;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+/* =========================
+   GRID (MORE CLEAN SPACING)
+========================= */
+
+.subjects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* =========================
+   CARD (PREMIUM LOOK)
+========================= */
+
+.subject-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* POPULAR TAG EFFECT */
+.subject-card.popular {
+  border: 1px solid #0ea5e9;
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.subject-card h3 {
+  font-size: 20px;
+  color: #0f172a;
+  margin: 15px 18px 5px;
+}
+
+.subject-card p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 18px 10px;
+}
+
+/* =========================
+   PDF PREVIEW
+========================= */
+
+.subject-card iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  background: #f1f5f9;
+}
+
+/* =========================
+   DOWNLOAD BUTTON (MODERN)
+========================= */
+
+.download-btn {
+  display: block;
+  margin: 15px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   NO DATA STATE
+========================= */
+
+.no-paper {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .papers-header h1 {
+    font-size: 30px;
+  }
+
+  .subject-card iframe {
+    height: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .year-buttons button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .subject-card iframe {
+    height: 220px;
+  }
+}

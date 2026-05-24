@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.syllabus-upload-container {
+  min-height: 100vh;
+  background: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.syllabus-upload-form {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.syllabus-upload-form h1 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.syllabus-upload-form input,
+.syllabus-upload-form select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.syllabus-upload-form input:focus,
+.syllabus-upload-form select:focus {
+  border-color: #2563eb;
+}
+
+.syllabus-upload-form button {
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.syllabus-upload-form button:hover {
+  background: #1d4ed8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .syllabus-upload-form {
+    padding: 20px;
+  }
+
+  .syllabus-upload-form h1 {
+    font-size: 24px;
+  }
+}

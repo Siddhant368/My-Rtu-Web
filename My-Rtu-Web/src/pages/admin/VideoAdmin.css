@@ -1,0 +1,137 @@
+/* =========================
+   VIDEO ADMIN PANEL (PRO UI)
+========================= */
+
+body {
+  background: #f1f5f9;
+  font-family: "Poppins", sans-serif;
+}
+
+/* MAIN CONTAINER */
+.video-admin {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* TITLE */
+.video-admin h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.video-form {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.4);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* INPUTS */
+.video-form input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+  background: white;
+}
+
+.video-form input:focus {
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 4px rgba(14,165,233,0.15);
+}
+
+/* BUTTON */
+.video-form button {
+  grid-column: span 2;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.video-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+}
+
+/* =========================
+   VIDEO LIST
+========================= */
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.video-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* TEXT */
+.video-card h4 {
+  font-size: 18px;
+  color: #0f172a;
+  margin-bottom: 5px;
+}
+
+.video-card p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+/* IFRAME */
+.video-card iframe {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  border: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .video-form {
+    grid-template-columns: 1fr;
+  }
+
+  .video-form button {
+    grid-column: span 1;
+  }
+}

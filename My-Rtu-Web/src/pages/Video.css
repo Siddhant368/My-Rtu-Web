@@ -1,0 +1,145 @@
+/* =========================
+   VIDEO LAYOUT (PRO UI)
+========================= */
+
+.video-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 25px;
+  padding: 25px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe);
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   LEFT SIDEBAR (MODERN)
+========================= */
+
+.video-sidebar {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.3);
+  height: fit-content;
+}
+
+.video-sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* =========================
+   VIDEO ITEMS (SIDEBAR)
+========================= */
+
+.video-item {
+  padding: 12px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #334155;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid transparent;
+}
+
+.video-item:hover {
+  background: #e0f2fe;
+  transform: translateX(4px);
+  color: #0f172a;
+}
+
+.video-item.active {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+}
+
+/* =========================
+   RIGHT PLAYER (MODERN CARD)
+========================= */
+
+.video-player {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   YOUTUBE FRAME (PREMIUM LOOK)
+========================= */
+
+.video-player iframe {
+  width: 100%;
+  height: 480px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.hint {
+  color: #64748b;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.video-item {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .video-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .video-player iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .video-layout {
+    padding: 15px;
+  }
+
+  .video-player iframe {
+    height: 220px;
+  }
+}

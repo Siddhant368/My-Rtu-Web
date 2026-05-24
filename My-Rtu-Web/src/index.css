@@ -1,0 +1,64 @@
+/* index.css */
+
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Body Styles ===== */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9; /* light gray background */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ===== Link Styles ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Utility Classes ===== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+
+/* ===== Image Styles ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Buttons ===== */
+button {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

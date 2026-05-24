@@ -1,0 +1,182 @@
+/* =====================
+   HOME BASE
+   ===================== */
+
+.home {
+  background: #f9fafb;
+  min-height: 40vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #0f172a;
+}
+
+/* =====================
+   HERO SECTION
+   ===================== */
+
+.hero {
+  padding: 40px 16px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #ffffff;
+}
+
+.hero-box {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-text span {
+  color: #fde68a;
+}
+
+.hero-text p {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #e0e7ff;
+  max-width: 520px;
+}
+
+.explore-btn {
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.explore-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 360px;
+}
+
+/* =====================
+   BRANCH SECTION
+   ===================== */
+
+.branch-section {
+  padding: 28px 16px;
+}
+
+.branch-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ===== HORIZONTAL SCROLL (KEY PART) ===== */
+
+.branch-grid {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.branch-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.branch-grid::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 10px;
+}
+
+/* ===== CARD ===== */
+
+.branch-card {
+  flex: 0 0 auto;
+  width: 240px;
+  height:180px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.branch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+}
+
+.branch-card h3 {
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.branch-card p {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #475569;
+}
+
+/* ===== ICON ===== */
+
+.branch-icon {
+  font-size: 34px;
+  margin-bottom: 6px;
+}
+
+.cse { color: #2563eb; }
+.me  { color: #f97316; }
+.ee  { color: #eab308; }
+.ce  { color: #16a34a; }
+.ece { color: #7c3aed; }
+
+/* =====================
+   TABLET
+   ===================== */
+
+@media (min-width: 768px) {
+  .hero-box {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .branch-card {
+    width: 300px;
+    max-width: 300px;
+  }
+}
+
+/* =====================
+   DESKTOP
+   ===================== */
+
+@media (min-width: 1024px) {
+  .branch-grid {
+    gap: 20px;
+  }
+}
