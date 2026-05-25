@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* BACKGROUND */
+.auth-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #0f172a, #0b1220);
+  overflow: hidden;
+  position: relative;
+}
+
+/* floating glow effects */
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  animation: floatGlow 6s infinite ease-in-out;
+}
+
+.auth-page::before {
+  background: #8b5cf6;
+  top: 10%;
+  left: 10%;
+}
+
+.auth-page::after {
+  background: #3b82f6;
+  bottom: 10%;
+  right: 10%;
+}
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-40px) scale(1.1); }
+}
+
+/* FORM CARD */
+.auth-form {
+  width: 380px;
+  padding: 40px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  color: white;
+  text-align: center;
+
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TITLE */
+.auth-form h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* INPUTS */
+.auth-form input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255,255,255,0.05);
+  color: white;
+
+  outline: none;
+  transition: 0.3s;
+}
+
+/* focus effect */
+.auth-form input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.2);
+}
+
+/* BUTTON */
+.auth-form button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+/* hover */
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(139,92,246,0.3);
+}
+
+/* disabled */
+.auth-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+  .auth-form {
+    width: 90%;
+    padding: 30px;
+  }
+}

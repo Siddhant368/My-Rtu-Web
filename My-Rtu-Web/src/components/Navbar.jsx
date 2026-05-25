@@ -1,54 +1,67 @@
-import React from "react";
-import { FaBookOpen, FaRobot, FaHome, FaUserCircle } from "react-icons/fa";
+import React, { useContext } from "react";
+import { FaBookOpen, FaHome, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const name = localStorage.getItem("userName");
-  const email = localStorage.getItem("userEmail");
-
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userName");
-    localStorage.removeItem("userEmail");
-    navigate("/login");
-  };
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <nav className="navbar">
-      <div className="nav-logo" onClick={() => navigate("/")}>
-        <div className="logo-circle">
-          <FaBookOpen className="logo-icon" />
+
+      {/* LEFT LOGO */}
+      <div className="nav-left" onClick={() => navigate("/")}>
+        <div className="logo-icon">
+          <FaBookOpen />
         </div>
         <div className="logo-text">
-          <span className="brand">RTU</span>
-          <span className="brand-sub">StudyVerse</span>
+          <h2>RTU StudyVerse</h2>
+          <span>Learn Smarter</span>
         </div>
       </div>
 
-      <div className="nav-menu">
+      {/* CENTER MENU */}
+      <div className="nav-center">
         <div className="nav-item" onClick={() => navigate("/")}>
           <FaHome />
           <span>Home</span>
         </div>
+      </div>
 
-       
+      {/* RIGHT SECTION */}
+      <div className="nav-right">
 
-        {!isLoggedIn ? (
-          <button className="login-btn" onClick={() => navigate("/login")}>
-            Login
+        {!user ? (
+          <button
+            className="login-btn"
+            onClick={() => navigate("/login")}
+          >
+            Sign In
           </button>
         ) : (
-          <div className="profile-dropdown">
-            <FaUserCircle className="profile-icon" />
-            <span className="profile-email">{name || email}</span>
-            <button className="logout-btn" onClick={handleLogout}>
+          <div className="profile">
+
+            <div className="profile-icon">
+              <FaUserCircle />
+            </div>
+
+            <div className="profile-info">
+              <p className="name">{user.name || "User"}</p>
+              <span className="email">{user.email}</span>
+            </div>
+
+            <button
+              className="logout-btn"
+              onClick={logout}
+            >
               Logout
             </button>
+
           </div>
         )}
+
       </div>
     </nav>
   );

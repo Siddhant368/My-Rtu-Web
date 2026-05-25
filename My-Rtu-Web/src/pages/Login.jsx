@@ -1,129 +1,95 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+
 import "./Login.css";
 
-function Login({ onLogin }) {
+function Login() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const [isSignup, setIsSignup] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
 
-    if (isSignup) {
-      // 🔹 Signup Logic (store user locally)
-      if (!name || !email || !password) {
-        alert("Please fill all fields");
-        return;
-      }
+    try {
+      const { data } = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        form
+      );
 
-      const user = { name, email, password };
-      localStorage.setItem("user", JSON.stringify(user));
-
-      alert("Signup Successful 🎉");
-      setIsSignup(false);
-    } else {
-      // 🔹 Login Logic (check localStorage)
-      if (!email || !password) {
-        alert("Please fill all fields");
-        return;
-      }
-
-      const storedUser = JSON.parse(localStorage.getItem("user"));
-
-      if (
-        storedUser &&
-        storedUser.email === email &&
-        storedUser.password === password
-      ) {
-        // ✅ SAVE LOGIN INFO
-        localStorage.setItem("token", "dummy-token-123");
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userName", storedUser.name);
-        localStorage.setItem("userEmail", storedUser.email);
-
-        onLogin();
-        navigate("/");
-      } else {
-        alert("Invalid Email or Password ❌");
-      }
+      login(data);
+      navigate("/");
+    } catch (err) {
+      setError(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2>{isSignup ? "Create Account ✨" : "Welcome Back 👋"}</h2>
-        <p>{isSignup ? "Sign up to RTU StudyVerse" : "Login to RTU StudyVerse"}</p>
+    <div className="auth-container">
 
-        <form onSubmit={handleSubmit}>
-          {isSignup && (
-            <div className="input-group">
-              <label>Full Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-          )}
+      {/* LEFT SIDE DESIGN */}
+      <div className="auth-left">
+        <h1>RTU StudyVerse</h1>
+        <p>Welcome back! Login to continue your learning journey.</p>
+        <div className="glow-circle"></div>
+      </div>
 
-          <div className="input-group">
-            <label>Email</label>
+      {/* RIGHT SIDE FORM */}
+      <div className="auth-right">
+        <div className="auth-card">
+
+          <h2>Sign in</h2>
+          <p className="subtitle">Enter your credentials</p>
+
+          <form onSubmit={handleSubmit}>
+
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              placeholder="Email address"
+              value={form.email}
+              onChange={handleChange}
             />
-          </div>
 
-          <div className="input-group">
-            <label>Password</label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
             />
-          </div>
 
-          <button type="submit" className="login-btn">
-            {isSignup ? "Sign Up" : "Login"}
-          </button>
-        </form>
+            {error && <div className="error">{error}</div>}
 
-        <div className="login-footer">
-          {isSignup ? (
-            <>
-              <span>Already have an account?</span>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsSignup(false);
-                }}
-              >
-                Login
-              </a>
-            </>
-          ) : (
-            <>
-              <span>Don’t have an account?</span>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setIsSignup(true);
-                }}
-              >
-                Sign up
-              </a>
-            </>
-          )}
+            <button disabled={loading}>
+              {loading ? "Signing in..." : "Login"}
+            </button>
+
+          </form>
+
+          <p className="bottom-text">
+            Don’t have an account?{" "}
+            <span onClick={() => navigate("/signup")}>
+              Create account
+            </span>
+          </p>
+
         </div>
       </div>
+
     </div>
   );
 }

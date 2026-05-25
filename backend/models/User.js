@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-role: {
+
+    role: {
       type: String,
       default: "user",
     },
@@ -27,6 +28,9 @@ role: {
   }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model(
+  "User",
+  userSchema
+);
 
 export default User;

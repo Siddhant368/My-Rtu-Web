@@ -1,4 +1,15 @@
 const isAdmin = (req, res, next) => {
+
+  // TOKEN CHECK
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({
+      message: "No token provided",
+    });
+  }
+
+  // ROLE CHECK
   const role = req.headers.role;
 
   if (role !== "admin") {

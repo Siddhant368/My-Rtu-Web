@@ -44,12 +44,7 @@ function BranchDashboard() {
             🎥 Video Lectures
           </div>
 
-          <div
-            className="card"
-            onClick={() => navigate(`/ai-assistant`)}
-          >
-            🤖 AI Assistant
-          </div>
+       
         </div>
       </div>
     </div>
