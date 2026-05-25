@@ -19,7 +19,7 @@ import Notes from "./pages/Notes";
 import Video from "./pages/Video";
 import Syllabus from "./pages/Syllabus";
 
-import OldPapers from "./pages/oldpapers";
+import OldPapers from "./pages/OldPapers";
 
 import Admin from "./pages/Admin";
 import UploadSyllabus from "./pages/admin/uploadSyllabus";
