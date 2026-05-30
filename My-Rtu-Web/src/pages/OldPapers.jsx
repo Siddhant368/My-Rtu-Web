@@ -14,7 +14,7 @@ function OldPapers() {
   useEffect(() => {
     const fetchPapers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/oldpapers");
+        const res = await axios.get("https://my-rtu-web0319.onrender.com/api/oldpapers");
 
         console.log("API DATA:", res.data);
 
@@ -97,7 +97,7 @@ function OldPapers() {
       {year && (
         <div className="subjects-container">
           {filteredPapers.map((p) => {
-            const fileUrl = `http://localhost:5000/uploads/oldpapers/${p.pdf}`;
+            const fileUrl = `https://my-rtu-web0319.onrender.com/uploads/oldpapers/${p.pdf}`;
 
             return (
               <div key={p._id} className="subject-card">

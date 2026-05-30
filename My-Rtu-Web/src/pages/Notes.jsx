@@ -10,7 +10,7 @@ function Notes() {
   const fetchNotes = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/notes"
+        "https://my-rtu-web0319.onrender.com/api/notes"
       );
 
       const normalize = (str) =>
@@ -37,7 +37,7 @@ const filtered = res.data.filter(
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/notes/${id}`
+        `https://my-rtu-web0319.onrender.com/api/notes/${id}`
       );
 
       setNotes((prev) =>
@@ -50,7 +50,7 @@ const filtered = res.data.filter(
 
   // ================= DOWNLOAD =================
   const handleDownload = (file) => {
-    const url = `http://localhost:5000/uploads/notes/${encodeURIComponent(file)}`;
+    const url = `https://my-rtu-web0319.onrender.com/uploads/notes/${encodeURIComponent(file)}`;
     const a = document.createElement("a");
     a.href = url;
     a.download = file;
@@ -82,7 +82,7 @@ const filtered = res.data.filter(
               onClick={() => {
   console.log("PDF DATA:", n.pdf);
 
-  const fileUrl = `http://localhost:5000/uploads/notes/${n.pdf}`;
+  const fileUrl = `https://my-rtu-web0319.onrender.com/uploads/notes/${n.pdf}`;
 
   console.log("FINAL URL:", fileUrl);
 

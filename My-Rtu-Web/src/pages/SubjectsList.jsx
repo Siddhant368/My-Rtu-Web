@@ -13,7 +13,7 @@ function SubjectsList() {
   const fetchSubjects = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/notes/subjects/${lowerBranch}/${sem}`
+        `https://my-rtu-web0319.onrender.com/api/notes/subjects/${lowerBranch}/${sem}`
       );
 
       setSubjects(res.data);
