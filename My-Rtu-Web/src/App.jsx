@@ -22,7 +22,7 @@ import Syllabus from "./pages/Syllabus";
 import OldPapers from "./pages/OldPapers";
 
 import Admin from "./pages/Admin";
-import UploadSyllabus from "./pages/admin/uploadSyllabus";
+import UploadSyllabus from "./pages/admin/UploadSyllabus";
 import UploadOldPaper from "./pages/admin/UploadOldPaper";
 import VideoAdmin from "./pages/admin/VideoAdmin";
 
