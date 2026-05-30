@@ -14,7 +14,7 @@ function Video() {
     const fetchVideos = async () => {
       try {
         const res = await axios.get(
-          "https://my-rtu-web0319.onrender.com/api/videos"
+          "https://my-rtu-web.onrender.com/api/videos"
         );
 
         // filter by branch & sem

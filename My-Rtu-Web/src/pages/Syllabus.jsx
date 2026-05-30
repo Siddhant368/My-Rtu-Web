@@ -34,7 +34,7 @@ function Syllabus() {
     try {
 
       const res = await axios.get(
-        "https://my-rtu-web0319.onrender.com/api/syllabus"
+        "https://my-rtu-web.onrender.com/api/syllabus"
       );
 
       const normalize = (str) =>
@@ -107,7 +107,7 @@ function Syllabus() {
 
   // PDF URL
   const pdfUrl =
-    `https://my-rtu-web0319.onrender.com/uploads/syllabus/${syllabus.pdf}`;
+    `https://my-rtu-web.onrender.com/uploads/syllabus/${syllabus.pdf}`;
 
   return (
 

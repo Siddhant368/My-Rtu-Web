@@ -23,7 +23,7 @@ function Signup() {
 
     try {
       await axios.post(
-        "https://my-rtu-web0319.onrender.com/api/auth/signup",
+        "https://my-rtu-web.onrender.com/api/auth/signup",
         form
       );
 

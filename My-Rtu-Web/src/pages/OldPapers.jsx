@@ -97,7 +97,7 @@ function OldPapers() {
       {year && (
         <div className="subjects-container">
           {filteredPapers.map((p) => {
-            const fileUrl = `https://my-rtu-web0319.onrender.com/uploads/oldpapers/${p.pdf}`;
+            const fileUrl = `https://my-rtu-web.onrender.com/uploads/oldpapers/${p.pdf}`;
 
             return (
               <div key={p._id} className="subject-card">

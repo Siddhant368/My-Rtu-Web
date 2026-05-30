@@ -24,7 +24,7 @@ function Login() {
 
     try {
       const { data } = await axios.post(
-        "https://my-rtu-web0319.onrender.com",
+        "https://my-rtu-web.onrender.com",
         form
       );
 

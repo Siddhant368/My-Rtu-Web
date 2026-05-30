@@ -13,7 +13,7 @@ function Units() {
   const fetchUnits = async () => {
     try {
       const res = await axios.get(
-        `https://my-rtu-web0319.onrender.com/api/notes/units/${lowerBranch}/${sem}/${subject}`
+        `https://my-rtu-web.onrender.com/api/notes/units/${lowerBranch}/${sem}/${subject}`
       );
 
       setUnits(res.data);
