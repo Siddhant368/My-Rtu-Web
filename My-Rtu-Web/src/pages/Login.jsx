@@ -9,7 +9,11 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -24,14 +28,20 @@ function Login() {
 
     try {
       const { data } = await axios.post(
-        "https://my-rtu-web.onrender.com",
+        "https://my-rtu-web.onrender.com/api/auth/login",
         form
       );
 
       login(data);
+
+      alert("Login Successful");
       navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      console.log(err);
+
+      setError(
+        err?.response?.data?.message || "Login failed"
+      );
     } finally {
       setLoading(false);
     }
@@ -39,29 +49,25 @@ function Login() {
 
   return (
     <div className="auth-container">
-
-      {/* LEFT SIDE DESIGN */}
       <div className="auth-left">
         <h1>RTU StudyVerse</h1>
         <p>Welcome back! Login to continue your learning journey.</p>
         <div className="glow-circle"></div>
       </div>
 
-      {/* RIGHT SIDE FORM */}
       <div className="auth-right">
         <div className="auth-card">
-
           <h2>Sign in</h2>
           <p className="subtitle">Enter your credentials</p>
 
           <form onSubmit={handleSubmit}>
-
             <input
               type="email"
               name="email"
               placeholder="Email address"
               value={form.email}
               onChange={handleChange}
+              required
             />
 
             <input
@@ -70,14 +76,14 @@ function Login() {
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
+              required
             />
 
             {error && <div className="error">{error}</div>}
 
-            <button disabled={loading}>
+            <button type="submit" disabled={loading}>
               {loading ? "Signing in..." : "Login"}
             </button>
-
           </form>
 
           <p className="bottom-text">
@@ -86,10 +92,8 @@ function Login() {
               Create account
             </span>
           </p>
-
         </div>
       </div>
-
     </div>
   );
 }
