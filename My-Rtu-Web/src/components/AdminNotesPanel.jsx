@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function AdminNotesPanel() {
-  const API = "http://localhost:5000/api/notes";
+  const API = "https://my-rtu-web.onrender.com/api/notes";
 
   const [notes, setNotes] = useState([]);
 
@@ -87,7 +87,7 @@ function AdminNotesPanel() {
 
   // ================= DOWNLOAD =================
   const handleDownload = (file) => {
-    const url = `http://localhost:5000/uploads/${file}`;
+    const url = `https://my-rtu-web.onrender.com/uploads/${file}`;
     const a = document.createElement("a");
     a.href = url;
     a.download = file;

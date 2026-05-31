@@ -14,7 +14,7 @@ function AIChatbot() {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/api/ai/chat",
+        "https://my-rtu-web.onrender.com/api/ai/chat",
         {
           message,
         }
